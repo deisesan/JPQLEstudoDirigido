@@ -44,12 +44,12 @@ public class Consulta20 extends HttpServlet {
             builder.append("<body>");
             builder.append("<h1>Consulta 20</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
-//
-//            builder.append("<h2>Consulta 20: Quais os grupos (nomes), membros (nomes) e as respectivas datas de entrada daqueles que "
-//                    + "entraram a partir de 2012 em qualquer grupo? </h2>");
-//            builder.append("<p><pre>");
-//            builder.append(grupoBean.getNomesGruposMembrosData(LocalDate.of(2012, Month.JANUARY, 1)));
-//            builder.append("</pre></p>");
+
+            builder.append("<h2>Consulta 20: Quais os grupos (nomes), membros (nomes) e as respectivas datas de entrada daqueles que "
+                    + "entraram a partir de 2012 em qualquer grupo? </h2>");
+            builder.append("<p><pre>");
+            builder.append(Util.toJson(grupoBean.getNomesGruposMembrosData(LocalDate.of(2012, Month.JANUARY, 1))));
+            builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
             builder.append(" <a href=\"Consulta21\">Consulta 21</a>");

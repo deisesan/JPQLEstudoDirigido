@@ -106,14 +106,15 @@ public class GrupoBean implements GrupoBeanLocal {
         return (List<Object[]>) resultado.getResultList();
     }
 
-//    @Override
-//    public List<Object[]> getNomesGruposMembrosData(LocalDate data) {
-//        Query resultado = em.createQuery("SELECT grupo.nome, atuacao.pessoa.nome "
-//                + "FROM Grupo grupo "
-//                + "JOIN grupo.atuacoes atuacao "
-//                + "WHERE atuacao.inicio >= :data "
-//                + "ORDER BY grupo.nome")
-//                .setParameter("data", data);
-//        return (List<Object[]>) resultado.getResultList();
-//    }
+    @Override
+    public List<Object[]> getNomesGruposMembrosData(LocalDate data) {
+        Query resultado = em.createQuery("SELECT grupo.nome, atuacao.pessoa.nome, atuacao.inicio "
+                + "FROM Grupo grupo "
+                + "JOIN grupo.atuacoes atuacao "
+                + "WHERE atuacao.inicio >= :data "
+                + "ORDER BY grupo.nome")
+                .setParameter("data", data);
+        return (List<Object[]>) resultado.getResultList();
+    }
+
 }

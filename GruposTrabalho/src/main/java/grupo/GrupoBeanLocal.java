@@ -33,6 +33,6 @@ public interface GrupoBeanLocal {
 
     List<Object[]> getNomesDataFiltroAno(Long id, LocalDate data);
 
-//    List<Object[]> getNomesGruposMembrosData(LocalDate data);
+    List<Object[]> getNomesGruposMembrosData(LocalDate data);
     
 }
