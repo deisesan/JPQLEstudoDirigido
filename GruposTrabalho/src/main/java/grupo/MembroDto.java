@@ -12,40 +12,40 @@ import java.time.LocalDate;
  */
 public class MembroDto {
 
-    private String nomeGrupo;
+    private String grupo;
 
-    private String nomePessoa;
+    private String nome;
 
-    private LocalDate dataInicio;
+    private LocalDate inicio;
 
-    public MembroDto(String nomeGrupo, String nomePessoa, LocalDate dataInicio) {
-        this.nomeGrupo = nomeGrupo;
-        this.nomePessoa = nomePessoa;
-        this.dataInicio = dataInicio;
+    public MembroDto(String grupo, String nome, LocalDate inicio) {
+        this.grupo = grupo;
+        this.nome = nome;
+        this.inicio = inicio;
     }
 
-    public String getNomeGrupo() {
-        return nomeGrupo;
+    public String getGrupo() {
+        return grupo;
     }
 
-    public void setNomeGrupo(String nomeGrupo) {
-        this.nomeGrupo = nomeGrupo;
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 
-    public String getNomePessoa() {
-        return nomePessoa;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomePessoa(String nomePessoa) {
-        this.nomePessoa = nomePessoa;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public LocalDate getDataInicio() {
-        return dataInicio;
+    public LocalDate getInicio() {
+        return inicio;
     }
 
-    public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
+    public void setInicio(LocalDate inicio) {
+        this.inicio = inicio;
     }
 
 }

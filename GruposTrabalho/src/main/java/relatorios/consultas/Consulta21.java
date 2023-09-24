@@ -51,7 +51,7 @@ public class Consulta21 extends HttpServlet {
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta22\">Consulta 21</a>");
+            builder.append(" <a href=\"Consulta22\">Consulta 22</a>");
             builder.append("</body>");
             builder.append("</html>");
 
