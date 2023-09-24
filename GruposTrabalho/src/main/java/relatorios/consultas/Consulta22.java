@@ -7,8 +7,6 @@ package relatorios.consultas;
 import grupo.GrupoBeanLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
-import java.time.Month;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,9 +43,9 @@ public class Consulta22 extends HttpServlet {
             builder.append("<h1>Consulta 22</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
-            builder.append("<h2>Consulta 22:  </h2>");
+            builder.append("<h2>Consulta 22: Quais são os grupos (nomes) e líderes (nomes) com respectivos membros (nomes)? </h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(grupoBean.getNomesGruposMembrosNaoDataTermino()));
+            builder.append(Util.toJson(grupoBean.getNomesGruposLideresMembros()));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
