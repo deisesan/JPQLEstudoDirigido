@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package relatorios;
+package relatorios.consultas;
 
+import grupo.GrupoBeanLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.inject.Inject;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
-import pessoa.PessoaBeanLocal;
 import util.Util;
 
 /**
@@ -21,11 +21,11 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta6", urlPatterns = { "/Consulta6" })
-public class Consulta6 extends HttpServlet {
+@WebServlet(name = "Consulta17", urlPatterns = {"/Consulta17"})
+public class Consulta17 extends HttpServlet {
 
     @Inject
-    private PessoaBeanLocal pessoaBean;
+    private GrupoBeanLocal grupoBean;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,29 +40,16 @@ public class Consulta6 extends HttpServlet {
             builder.append("<title>Servlet Consultas</title>");
             builder.append("</head>");
             builder.append("<body>");
-            builder.append("<h1>Consulta 6</h1>");
+            builder.append("<h1>Consulta 17</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
-            builder.append(
-                    "<h2>Consulta 6.A: Quais pessoas (nomes) e seus respectivos telefones (dados completos)? Por meio de Query</h2>");
+            builder.append("<h2>Consulta 17: Quais são os grupos (nomes) e os respectivos totais de membros distintos já alocados? </h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getNomesTelefonesQuery()));
-            builder.append("</pre></p>");
-
-            builder.append(
-                    "<h2>Consulta 6.B: Quais pessoas (nomes) e seus respectivos telefones (dados completos)? Por meio de TypedQuery</h2>");
-            builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getNomesTelefonesTypedQuery()));
-            builder.append("</pre></p>");
-
-            builder.append(
-                    "<h2>Consulta 6.C: Quais pessoas (nomes) e seus respectivos telefones (dados completos)? Por meio de NamedQuery</h2>");
-            builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getNomesTelefonesNamedQuery()));
+            builder.append(Util.toJson(grupoBean.getNomesGruposTotaisMembros()));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta7\">Consulta 7</a>");
+            builder.append(" <a href=\"Consulta18\">Consulta 18</a>");
             builder.append("</body>");
             builder.append("</html>");
 

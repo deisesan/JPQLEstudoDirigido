@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package relatorios;
+package relatorios.consultas;
 
 import grupo.GrupoBeanLocal;
 import java.io.IOException;
@@ -21,8 +21,8 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta12", urlPatterns = { "/Consulta12" })
-public class Consulta12 extends HttpServlet {
+@WebServlet(name = "Consulta11", urlPatterns = { "/Consulta11" })
+public class Consulta11 extends HttpServlet {
 
     @Inject
     private GrupoBeanLocal grupoBean;
@@ -40,17 +40,17 @@ public class Consulta12 extends HttpServlet {
             builder.append("<title>Servlet Consultas</title>");
             builder.append("</head>");
             builder.append("<body>");
-            builder.append("<h1>Consulta 12</h1>");
+            builder.append("<h1>Consulta 11</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
             builder.append(
-                    "<h2>Consulta 12: Quais são os líderes (nomes) dos grupos (nomes)?</h2>");
+                    "<h2>Consulta 11: Quais grupos (dados completos) não estão ativos?</h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(grupoBean.getNomesLideresGruposNomes()));
+            builder.append(Util.toJson(grupoBean.getGruposNaoAtivos()));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta13\">Consulta 13</a>");
+            builder.append(" <a href=\"Consulta12\">Consulta 12</a>");
             builder.append("</body>");
             builder.append("</html>");
 

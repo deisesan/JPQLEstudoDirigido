@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package relatorios;
+package relatorios.consultas;
 
-import grupo.GrupoBeanLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.Month;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
+import pessoa.PessoaBeanLocal;
 import util.Util;
 
 /**
@@ -21,11 +23,11 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta11", urlPatterns = { "/Consulta11" })
-public class Consulta11 extends HttpServlet {
+@WebServlet(name = "Consulta8", urlPatterns = { "/Consulta8" })
+public class Consulta8 extends HttpServlet {
 
     @Inject
-    private GrupoBeanLocal grupoBean;
+    private PessoaBeanLocal pessoaBean;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,17 +42,22 @@ public class Consulta11 extends HttpServlet {
             builder.append("<title>Servlet Consultas</title>");
             builder.append("</head>");
             builder.append("<body>");
-            builder.append("<h1>Consulta 11</h1>");
+            builder.append("<h1>Consulta 8</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
-            builder.append(
-                    "<h2>Consulta 11: Quais grupos (dados completos) não estão ativos?</h2>");
+            builder.append("<h2>Consulta 8.A: Quais pessoas (dados completos) têm telefone do estado do Paraná?</h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(grupoBean.getGruposNaoAtivos()));
+            builder.append(Util.toJson(pessoaBean.getPessoasTelefonesEstado((byte) 44)));
+            builder.append("</pre></p>");
+
+            builder.append(
+                    "<h2>Consulta 8.B: Quais pessoas (dados completos) têm telefone do estado do Rio de Janeiro?</h2>");
+            builder.append("<p><pre>");
+            builder.append(Util.toJson(pessoaBean.getPessoasTelefonesEstado((byte) 22)));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta12\">Consulta 12</a>");
+            builder.append(" <a href=\"Consulta9\">Consulta 9</a>");
             builder.append("</body>");
             builder.append("</html>");
 

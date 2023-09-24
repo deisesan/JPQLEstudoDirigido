@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package relatorios;
+package relatorios.consultas;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,8 +21,8 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta10", urlPatterns = { "/Consulta10" })
-public class Consulta10 extends HttpServlet {
+@WebServlet(name = "Consulta9", urlPatterns = { "/Consulta9" })
+public class Consulta9 extends HttpServlet {
 
     @Inject
     private PessoaBeanLocal pessoaBean;
@@ -40,17 +40,17 @@ public class Consulta10 extends HttpServlet {
             builder.append("<title>Servlet Consultas</title>");
             builder.append("</head>");
             builder.append("<body>");
-            builder.append("<h1>Consulta 10</h1>");
+            builder.append("<h1>Consulta 9</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
             builder.append(
-                    "<h2>Consulta 10: Quantos telefones cada pessoa (nome) tem?</h2>");
+                    "<h2>Consulta 9: Quais pessoas (dados completos) não possuem telefone?</h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getNomeCountTelefones()));
+            builder.append(Util.toJson(pessoaBean.getPessoasNaoTelefones()));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta11\">Consulta 11</a>");
+            builder.append(" <a href=\"Consulta10\">Consulta 10</a>");
             builder.append("</body>");
             builder.append("</html>");
 

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package relatorios;
+package relatorios.consultas;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,8 +21,8 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta3", urlPatterns = { "/Consulta3" })
-public class Consulta3 extends HttpServlet {
+@WebServlet(name = "Consulta4", urlPatterns = { "/Consulta4" })
+public class Consulta4 extends HttpServlet {
 
     @Inject
     private PessoaBeanLocal pessoaBean;
@@ -40,29 +40,29 @@ public class Consulta3 extends HttpServlet {
             builder.append("<title>Servlet Consultas</title>");
             builder.append("</head>");
             builder.append("<body>");
-            builder.append("<h1>Consulta 3</h1>");
+            builder.append("<h1>Consulta 4</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
             builder.append(
-                    "<h2>Consulta 3.A: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de Query</h2>");
+                    "<h2>Consulta 4.A: Quais pessoas (dados completos) moram em avenidas? Por meio de Query</h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getPessoasEnderecosQuery()));
+            builder.append(Util.toJson(pessoaBean.getPessoasAvenidasQuery()));
             builder.append("</pre></p>");
 
             builder.append(
-                    "<h2>Consulta 3.B: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de TypedQuery</h2>");
+                    "<h2>Consulta 4.B: Quais pessoas (dados completos) moram em avenidas? Por meio de TypedQuery</h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getPessoasEnderecosTypedQuery()));
+            builder.append(Util.toJson(pessoaBean.getPessoasAvenidasTypedQuery()));
             builder.append("</pre></p>");
 
             builder.append(
-                    "<h2>Consulta 3.C: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de NamedQuery</h2>");
+                    "<h2>Consulta 4.C: Quais pessoas (dados completos) moram em avenidas? Por meio de NamedQuery</h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getPessoasEnderecosNamedQuery()));
+            builder.append(Util.toJson(pessoaBean.getPessoasAvenidasNamedQuery()));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta4\">Consulta 4</a>");
+            builder.append(" <a href=\"Consulta5\">Consulta 5</a>");
             builder.append("</body>");
             builder.append("</html>");
 

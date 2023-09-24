@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package relatorios;
+package relatorios.consultas;
 
+import grupo.GrupoBeanLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.inject.Inject;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
-import pessoa.PessoaBeanLocal;
 import util.Util;
 
 /**
@@ -21,11 +21,11 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta2", urlPatterns = { "/Consulta2" })
-public class Consulta2 extends HttpServlet {
+@WebServlet(name = "Consulta14", urlPatterns = { "/Consulta14" })
+public class Consulta14 extends HttpServlet {
 
     @Inject
-    private PessoaBeanLocal pessoaBean;
+    private GrupoBeanLocal grupoBean;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,26 +40,17 @@ public class Consulta2 extends HttpServlet {
             builder.append("<title>Servlet Consultas</title>");
             builder.append("</head>");
             builder.append("<body>");
-            builder.append("<h1>Consulta 2</h1>");
+            builder.append("<h1>Consulta 14</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
-            builder.append("<h2>Consulta 2.A: Quais os nomes das pessoas? Por meio de Query</h2>");
+            builder.append(
+                    "<h2>Consulta 14: Quais são os grupos (dados completos) liderados por “Beatriz Yana”?</h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getNomesQuery()));
-            builder.append("</pre></p>");
-
-            builder.append("<h2>Consulta 2.B: Quais os nomes das pessoas? Por meio de TypedQuery</h2>");
-            builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getNomesTypedQuery()));
-            builder.append("</pre></p>");
-
-            builder.append("<h2>Consulta 2.C: Quais os nomes das pessoas? Por meio de NamedQuery</h2>");
-            builder.append("<p><pre>");
-            builder.append(Util.toJson(pessoaBean.getNomesNamedQuery()));
+            builder.append(Util.toJson(grupoBean.getGruposLiderados("Beatriz Yana")));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta3\">Consulta 3</a>");
+            builder.append(" <a href=\"Consulta15\">Consulta 15</a>");
             builder.append("</body>");
             builder.append("</html>");
 
