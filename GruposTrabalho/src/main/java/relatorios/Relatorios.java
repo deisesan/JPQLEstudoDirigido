@@ -4,11 +4,14 @@
  */
 package relatorios;
 
+import atuacao.AtuacaoBeanLocal;
 import grupo.GrupoBeanLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Arrays;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +35,9 @@ public class Relatorios extends HttpServlet {
 
     @Inject
     private GrupoBeanLocal grupoBean;
+
+    @Inject
+    private AtuacaoBeanLocal atuacaoBean;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -254,18 +260,20 @@ public class Relatorios extends HttpServlet {
             builder.append("</pre></p>");
 
             /* Consulta 20 */
-            builder.append("<h2>Consulta 20: Quais os grupos (nomes), membros (nomes) e as respectivas datas de entrada daqueles que "
+            builder.append(
+                    "<h2>Consulta 20: Quais os grupos (nomes), membros (nomes) e as respectivas datas de entrada daqueles que "
                     + "entraram a partir de 2012 em qualquer grupo? </h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(
-                    grupoBean.getNomesGruposMembrosData(LocalDate.of(2012, Month.JANUARY, 1))));
+            List<Long> idsGrupos = Arrays.asList(1L, 2L, 3L, 4L);
+
+            builder.append(Util.toJson(atuacaoBean.getNomesGruposMembrosData(idsGrupos, LocalDate.of(2012, Month.JANUARY, 1))));
             builder.append("</pre></p>");
 
             /* Consulta 21 */
-            builder.append("<h2>Consulta 20: Quais os grupos (nomes), membros (nomes) e as respectivas datas de entrada daqueles que "
-                    + "entraram a partir de 2012 em qualquer grupo? </h2>");
+            builder.append("<h2>Consulta 21: Quais os grupos (nomes) e respectivos membros (nomes) que não possuem data\n"
+                    + "de término de atuação em seus grupos? </h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(grupoBean.getNomesGruposMembrosData(LocalDate.of(2012, Month.JANUARY, 1))));
+            builder.append(Util.toJson(grupoBean.getNomesGruposMembrosNaoDataTermino()));
             builder.append("</pre></p>");
 
             /* Consulta 22 */

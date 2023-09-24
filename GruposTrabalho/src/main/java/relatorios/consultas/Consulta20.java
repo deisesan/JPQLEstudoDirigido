@@ -4,11 +4,13 @@
  */
 package relatorios.consultas;
 
-import grupo.GrupoBeanLocal;
+import atuacao.AtuacaoBeanLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Arrays;
+import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,11 +25,11 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta20", urlPatterns = {"/Consulta20"})
+@WebServlet(name = "Consulta20", urlPatterns = { "/Consulta20" })
 public class Consulta20 extends HttpServlet {
 
     @Inject
-    private GrupoBeanLocal grupoBean;
+    private AtuacaoBeanLocal atuacaoBean;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,10 +47,14 @@ public class Consulta20 extends HttpServlet {
             builder.append("<h1>Consulta 20</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
-            builder.append("<h2>Consulta 20: Quais os grupos (nomes), membros (nomes) e as respectivas datas de entrada daqueles que "
-                    + "entraram a partir de 2012 em qualquer grupo? </h2>");
+            builder.append(
+                    "<h2>Consulta 20: Quais os grupos (nomes), membros (nomes) e as respectivas datas de entrada daqueles que "
+                            + "entraram a partir de 2012 em qualquer grupo? </h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(grupoBean.getNomesGruposMembrosData(LocalDate.of(2012, Month.JANUARY, 1))));
+            List<Long> idsGrupos = Arrays.asList(1L, 2L, 3L, 4L);
+
+            builder.append(Util
+                    .toJson(atuacaoBean.getNomesGruposMembrosData(idsGrupos, LocalDate.of(2012, Month.JANUARY, 1))));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");

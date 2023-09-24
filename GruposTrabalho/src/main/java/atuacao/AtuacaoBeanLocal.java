@@ -4,6 +4,9 @@
  */
 package atuacao;
 
+import grupo.MembroDto;
+import java.time.LocalDate;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,4 +18,5 @@ public interface AtuacaoBeanLocal {
 
     void create(Atuacao atuacao);
 
+    List<MembroDto> getNomesGruposMembrosData(List<Long> idsGrupos, LocalDate dataInicio);
 }

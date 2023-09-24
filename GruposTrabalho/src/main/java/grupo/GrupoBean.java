@@ -56,9 +56,9 @@ public class GrupoBean implements GrupoBeanLocal {
     public List<Object[]> getDatasNomeGrupo(String nomeIntegrante) {
         Query resultado = em.createQuery(
                 "SELECT grupo.nome, atuacao.inicio, atuacao.termino "
-                + "FROM Grupo grupo "
-                + "JOIN grupo.atuacoes atuacao "
-                + "WHERE atuacao.pessoa.nome = :nomeIntegrante")
+                        + "FROM Grupo grupo "
+                        + "JOIN grupo.atuacoes atuacao "
+                        + "WHERE atuacao.pessoa.nome = :nomeIntegrante")
                 .setParameter("nomeIntegrante", nomeIntegrante);
         return (List<Object[]>) resultado.getResultList();
     }
@@ -107,17 +107,6 @@ public class GrupoBean implements GrupoBeanLocal {
     }
 
     @Override
-    public List<Object[]> getNomesGruposMembrosData(LocalDate data) {
-        Query resultado = em.createQuery("SELECT grupo.nome, atuacao.pessoa.nome, atuacao.inicio "
-                + "FROM Grupo grupo "
-                + "JOIN grupo.atuacoes atuacao "
-                + "WHERE atuacao.inicio >= :data "
-                + "ORDER BY grupo.nome")
-                .setParameter("data", data);
-        return (List<Object[]>) resultado.getResultList();
-    }
-
-    @Override
     public List<Object[]> getNomesGruposMembrosNaoDataTermino() {
         Query resultado = em.createQuery("SELECT grupo.nome, atuacao.pessoa.nome "
                 + "FROM Grupo grupo "
@@ -134,5 +123,5 @@ public class GrupoBean implements GrupoBeanLocal {
                 + "ORDER BY grupo.nome, grupo.lider.nome, atuacao.pessoa.nome");
         return (List<Object[]>) resultado.getResultList();
     }
-    
+
 }

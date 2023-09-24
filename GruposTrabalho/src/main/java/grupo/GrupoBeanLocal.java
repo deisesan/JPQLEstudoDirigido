@@ -33,10 +33,8 @@ public interface GrupoBeanLocal {
 
     List<Object[]> getNomesDataFiltroAno(Long id, LocalDate data);
 
-    List<Object[]> getNomesGruposMembrosData(LocalDate data);
-    
     List<Object[]> getNomesGruposMembrosNaoDataTermino();
-    
+
     List<Object[]> getNomesGruposLideresMembros();
-    
+
 }
