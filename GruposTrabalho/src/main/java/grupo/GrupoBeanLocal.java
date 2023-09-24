@@ -35,4 +35,6 @@ public interface GrupoBeanLocal {
 
     List<Object[]> getNomesGruposMembrosData(LocalDate data);
     
+    List<Object[]> getNomesGruposMembrosNaoDataTermino();
+    
 }

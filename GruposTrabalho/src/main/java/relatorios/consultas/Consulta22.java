@@ -23,8 +23,8 @@ import util.Util;
  * @author deise
  */
 @Transactional
-@WebServlet(name = "Consulta19", urlPatterns = {"/Consulta19"})
-public class Consulta19 extends HttpServlet {
+@WebServlet(name = "Consulta22", urlPatterns = { "/Consulta22" })
+public class Consulta22 extends HttpServlet {
 
     @Inject
     private GrupoBeanLocal grupoBean;
@@ -42,16 +42,16 @@ public class Consulta19 extends HttpServlet {
             builder.append("<title>Servlet Consultas</title>");
             builder.append("</head>");
             builder.append("<body>");
-            builder.append("<h1>Consulta 19</h1>");
+            builder.append("<h1>Consulta 22</h1>");
             builder.append("<a href=\"index.html\">Voltar</a>");
 
-            builder.append("<h2>Consulta 19: Quais membros (nomes) entraram a partir de 2012 no primeiro grupo? </h2>");
+            builder.append("<h2>Consulta 22:  </h2>");
             builder.append("<p><pre>");
-            builder.append(Util.toJson(grupoBean.getNomesDataFiltroAno((long) 1, LocalDate.of(2012, Month.JANUARY, 1))));
+            builder.append(Util.toJson(grupoBean.getNomesGruposMembrosNaoDataTermino()));
             builder.append("</pre></p>");
 
             builder.append("<a href=\"index.html\">Voltar</a>");
-            builder.append(" <a href=\"Consulta20\">Consulta 20</a>");
+            builder.append(" <a href=\"Consulta1\">Consulta 1</a>");
             builder.append("</body>");
             builder.append("</html>");
 
