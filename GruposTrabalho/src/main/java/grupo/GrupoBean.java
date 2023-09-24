@@ -126,4 +126,13 @@ public class GrupoBean implements GrupoBeanLocal {
         return (List<Object[]>) resultado.getResultList();
     }
 
+    @Override
+    public List<Object[]> getNomesGruposLideresMembros() {
+        Query resultado = em.createQuery("SELECT grupo.nome, grupo.lider.nome, atuacao.pessoa.nome "
+                + "FROM Grupo grupo "
+                + "JOIN grupo.atuacoes atuacao "
+                + "ORDER BY grupo.nome, grupo.lider.nome, atuacao.pessoa.nome");
+        return (List<Object[]>) resultado.getResultList();
+    }
+    
 }
